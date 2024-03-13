@@ -1,15 +1,10 @@
 <?php
-/*
 include("conexao.php");
-
-// Consulta SQL
-$sql = "SELECT * FROM User";
-
-$result = $conn->query($sql);
-*/
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST["name"];
-    $email = $_POST["email"];
+    $senha = $_POST["senha"];
+} else {
+    echo "Digite Nome e Senha para se cadastrar";
 }
-echo $nome, $email;
+$sql = "INSERT INTO usuario (nome, senha) VALUES ('$nome', '$senha')";

@@ -14,16 +14,12 @@
             <label for="name">Nome:</label>
             <input type="text" id="name" name="name">
             <br>
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha">
             <br>
             <input type="submit" value="Enviar">
         </form>
     </div>
-
-    <?php
-    echo $nome, $email;
-    ?>
 </body>
 
 </html>
