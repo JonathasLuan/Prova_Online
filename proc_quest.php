@@ -7,7 +7,7 @@ $sql = "SELECT q.questao_id, q.texto_questao, q.enunciado, a.alternativa_id, a.t
         INNER JOIN Alternativa a ON q.questao_id = a.questao_id
         ORDER BY q.questao_id, a.letra_alternativa";
 
-$result = $conn->query($sql);
+$result = $mysqli->query($sql);
 
 // Array para armazenar as questões e suas alternativas
 $questoes = array();

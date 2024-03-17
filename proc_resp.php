@@ -1,4 +1,7 @@
 <?php
+session_start();
+$usuario_id = $_SESSION['id'];
+
 include("conexao.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -24,18 +27,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Itera sobre as respostas para inseri-las no banco de dados
     foreach ($respostas as $questao_id => $resposta) {
         // Constrói e executa a consulta SQL de inserção
-        $sql = "INSERT INTO resposta (usuario_id, questao_id, alternativa) 
-                VALUES ($usuario_id, $questao_id, '$resposta')";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "Resposta para a questão $questao_id inserida com sucesso.<br>";
-        } else {
-            echo "Erro ao inserir resposta para a questão $questao_id: " . $conn->error . "<br>";
-        }
+        $sql = "INSERT INTO resposta (questao_id, alternativa_selecionada_id, usuario_id) 
+                VALUES ($questao_id, $resposta, $usuario_id)";
     }
 
     // Fecha a conexão com o banco de dados
-    $conn->close();
+    $mysqli->close();
 }
 
 
