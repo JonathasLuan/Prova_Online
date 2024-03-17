@@ -1,3 +1,14 @@
+<?php
+// Inicia a sessão do PHP
+session_start();
+
+if (isset($_SESSION['id']) && session_id() == $_SESSION['id']) {
+    header('Location: login.php');
+    return;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

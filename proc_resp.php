@@ -18,6 +18,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Conecta ao banco de dados (assumindo que você já tenha uma conexão estabelecida)
+
+    // Itera sobre as respostas para inseri-las no banco de dados
+    foreach ($respostas as $questao_id => $resposta) {
+        // Constrói e executa a consulta SQL de inserção
+        $sql = "INSERT INTO resposta (usuario_id, questao_id, alternativa) 
+                VALUES ($usuario_id, $questao_id, '$resposta')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "Resposta para a questão $questao_id inserida com sucesso.<br>";
+        } else {
+            echo "Erro ao inserir resposta para a questão $questao_id: " . $conn->error . "<br>";
+        }
+    }
+
+    // Fecha a conexão com o banco de dados
+    $conn->close();
+}
 
 
 /*

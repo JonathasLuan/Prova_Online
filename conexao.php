@@ -6,12 +6,12 @@ $password = "";
 $dbname = "prova_online";
 
 // Criar conexão
-$conn = new mysqli($servername, $username, $password, $dbname);
+$mysqli = new mysqli($servername, $username, $password, $dbname);
 
 // Verificar conexão
-if ($conn->connect_error) {
+if ($mysqli->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
 // Configurar a codificação de caracteres para UTF-8
-mysqli_set_charset($conn, "utf8mb4");
+mysqli_set_charset($mysqli, "utf8mb4");
