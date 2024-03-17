@@ -3,8 +3,8 @@ include("conexao.php");
 
 // Consulta SQL para buscar todas as questões e suas alternativas
 $sql = "SELECT q.questao_id, q.texto_questao, q.enunciado, a.alternativa_id, a.texto_alternativa, a.letra_alternativa
-        FROM Questoes q
-        INNER JOIN Alternativas a ON q.questao_id = a.questao_id
+        FROM Questao q
+        INNER JOIN Alternativa a ON q.questao_id = a.questao_id
         ORDER BY q.questao_id, a.letra_alternativa";
 
 $result = $conn->query($sql);
